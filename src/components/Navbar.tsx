@@ -4,6 +4,7 @@ import { AnimateOnScroll } from "./ui/animations";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
+import { Logo } from "./Logo";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -37,24 +38,24 @@ export function Navbar() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <AnimateOnScroll animation="fade-in" className="flex items-center">
-            <a href="/" className="text-2xl font-display font-bold text-primary">
-              Uni<span className="text-accent">Talent</span>
+            <a href="/" className="flex items-center">
+              <Logo withAnimation={!isScrolled} />
             </a>
           </AnimateOnScroll>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-6">
             <AnimateOnScroll animation="fade-in" delay={100}>
-              <a href="#" className="text-foreground/80 hover:text-foreground transition-colors">Find Talent</a>
+              <a href="#" className="text-foreground/80 hover:text-primary transition-colors">Find Talent</a>
             </AnimateOnScroll>
             <AnimateOnScroll animation="fade-in" delay={200}>
-              <a href="#" className="text-foreground/80 hover:text-foreground transition-colors">Find Work</a>
+              <a href="#" className="text-foreground/80 hover:text-primary transition-colors">Find Work</a>
             </AnimateOnScroll>
             <AnimateOnScroll animation="fade-in" delay={300}>
-              <a href="#" className="text-foreground/80 hover:text-foreground transition-colors">Why UniTalent</a>
+              <a href="#" className="text-foreground/80 hover:text-primary transition-colors">Why UniTalent</a>
             </AnimateOnScroll>
             <AnimateOnScroll animation="fade-in" delay={400}>
-              <Button variant="ghost" className="text-foreground/80 hover:text-foreground">
+              <Button variant="ghost" className="text-foreground/80 hover:text-primary">
                 Log In
               </Button>
             </AnimateOnScroll>
@@ -82,16 +83,16 @@ export function Navbar() {
         {mobileMenuOpen && (
           <div className="md:hidden mt-4 pb-4 animate-fade-in">
             <div className="flex flex-col space-y-4">
-              <a href="#" className="text-foreground/80 hover:text-foreground transition-colors py-2">
+              <a href="#" className="text-foreground/80 hover:text-primary transition-colors py-2">
                 Find Talent
               </a>
-              <a href="#" className="text-foreground/80 hover:text-foreground transition-colors py-2">
+              <a href="#" className="text-foreground/80 hover:text-primary transition-colors py-2">
                 Find Work
               </a>
-              <a href="#" className="text-foreground/80 hover:text-foreground transition-colors py-2">
+              <a href="#" className="text-foreground/80 hover:text-primary transition-colors py-2">
                 Why UniTalent
               </a>
-              <Button variant="ghost" className="justify-start text-foreground/80 hover:text-foreground w-full">
+              <Button variant="ghost" className="justify-start text-foreground/80 hover:text-primary w-full">
                 Log In
               </Button>
               <Button className="bg-primary text-white hover:bg-primary/90 w-full">

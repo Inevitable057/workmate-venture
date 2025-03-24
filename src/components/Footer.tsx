@@ -1,46 +1,34 @@
-
 import { AnimateOnScroll } from "./ui/animations";
-import { ChevronRight, Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from "lucide-react";
+import { Logo } from "./Logo";
 
 export function Footer() {
   return (
-    <footer className="bg-gray-50 dark:bg-gray-900 pt-20 pb-10">
+    <footer className="bg-muted/30 dark:bg-gray-900 py-16">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           <AnimateOnScroll animation="slide-up" className="lg:col-span-2">
             <div className="mb-4">
-              <a href="/" className="text-2xl font-display font-bold text-primary">
-                Uni<span className="text-accent">Talent</span>
+              <a href="/">
+                <Logo size="lg" />
               </a>
             </div>
             <p className="text-muted-foreground mb-6 max-w-md">
-              The premier platform connecting skilled freelancers with clients looking for exceptional talent. 
-              Join our community today and transform the way you work.
+              Connect with talented professionals from around the world. 
+              Quality work, delivered on time, every time.
             </p>
             <div className="flex space-x-4">
-              <a 
-                href="#" 
-                className="w-10 h-10 rounded-full bg-white dark:bg-gray-800 flex items-center justify-center text-foreground hover:bg-primary hover:text-white transition-colors shadow-sm"
-              >
-                <Facebook size={18} />
+              <a href="#" className="bg-primary/10 hover:bg-primary/20 p-2 rounded-full text-primary transition-colors" aria-label="Facebook">
+                <Facebook size={20} />
               </a>
-              <a 
-                href="#" 
-                className="w-10 h-10 rounded-full bg-white dark:bg-gray-800 flex items-center justify-center text-foreground hover:bg-primary hover:text-white transition-colors shadow-sm"
-              >
-                <Twitter size={18} />
+              <a href="#" className="bg-primary/10 hover:bg-primary/20 p-2 rounded-full text-primary transition-colors" aria-label="Twitter">
+                <Twitter size={20} />
               </a>
-              <a 
-                href="#" 
-                className="w-10 h-10 rounded-full bg-white dark:bg-gray-800 flex items-center justify-center text-foreground hover:bg-primary hover:text-white transition-colors shadow-sm"
-              >
-                <Instagram size={18} />
+              <a href="#" className="bg-primary/10 hover:bg-primary/20 p-2 rounded-full text-primary transition-colors" aria-label="Instagram">
+                <Instagram size={20} />
               </a>
-              <a 
-                href="#" 
-                className="w-10 h-10 rounded-full bg-white dark:bg-gray-800 flex items-center justify-center text-foreground hover:bg-primary hover:text-white transition-colors shadow-sm"
-              >
-                <Linkedin size={18} />
+              <a href="#" className="bg-primary/10 hover:bg-primary/20 p-2 rounded-full text-primary transition-colors" aria-label="LinkedIn">
+                <Linkedin size={20} />
               </a>
             </div>
           </AnimateOnScroll>

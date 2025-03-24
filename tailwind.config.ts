@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -106,6 +105,22 @@ export default {
 					from: { transform: 'scale(0.95)', opacity: '0' },
 					to: { transform: 'scale(1)', opacity: '1' }
 				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' },
+				},
+				'pulse-soft': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.7' },
+				},
+				'shimmer': {
+					'0%': { backgroundPosition: '-200% 0' },
+					'100%': { backgroundPosition: '200% 0' },
+				},
+				'spin-slow': {
+					'0%': { transform: 'rotate(0deg)' },
+					'100%': { transform: 'rotate(360deg)' },
+				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
@@ -116,6 +131,10 @@ export default {
 				'slide-down': 'slide-down 0.5s ease-out',
 				'slide-in-right': 'slide-in-right 0.5s ease-out',
 				'scale-in': 'scale-in 0.5s ease-out',
+				'float': 'float 3s ease-in-out infinite',
+				'pulse-soft': 'pulse-soft 2s ease-in-out infinite',
+				'shimmer': 'shimmer 2s linear infinite',
+				'spin-slow': 'spin-slow 8s linear infinite',
 			},
 			boxShadow: {
 				'soft': '0 2px 15px 0 rgba(0, 0, 0, 0.05)',
@@ -123,6 +142,11 @@ export default {
 			},
 			backdropBlur: {
 				'xs': '2px',
+			},
+			backgroundImage: {
+				'gold-gradient': 'linear-gradient(90deg, #FEF7CD 0%, #FFD700 100%)',
+				'aqua-gradient': 'linear-gradient(90deg, #0EA5E9 0%, #7EDCE2 100%)',
+				'gold-aqua-gradient': 'linear-gradient(135deg, #FFD700 0%, #0EA5E9 100%)',
 			},
 		}
 	},
