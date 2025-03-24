@@ -6,110 +6,122 @@ import { AnimateOnScroll } from "./ui/animations";
 import { FreelancerCard } from "./FreelancerCard";
 import { ArrowRight } from "lucide-react";
 
-// Mock data for freelancers
+// Mock data for freelancers (Ghanaian university students)
 const mockFreelancers = {
   design: [
     {
-      name: "Sophia Chen",
+      name: "Kwame Mensah",
       title: "UI/UX Designer",
       rating: 4.9,
-      hourlyRate: 75,
-      imageUrl: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+      hourlyRate: 85,
+      imageUrl: "https://images.unsplash.com/photo-1539635278303-d4002c07eae3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
       skills: ["UI Design", "User Research", "Figma", "Prototyping"],
+      university: "University of Ghana",
     },
     {
-      name: "Alex Rivera",
+      name: "Abena Osei",
       title: "Product Designer",
       rating: 4.8,
-      hourlyRate: 85,
-      imageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+      hourlyRate: 95,
+      imageUrl: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
       skills: ["Product Design", "Design Systems", "User Testing", "Figma"],
+      university: "Kwame Nkrumah University of Science and Technology",
     },
     {
-      name: "Mei Zhang",
+      name: "Kofi Agyeman",
       title: "Graphic Designer",
       rating: 4.7,
-      hourlyRate: 65,
-      imageUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
+      hourlyRate: 75,
+      imageUrl: "https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
       skills: ["Branding", "Illustration", "Typography", "Adobe Creative Suite"],
+      university: "University of Cape Coast",
     },
   ],
   development: [
     {
-      name: "James Wilson",
+      name: "Daniel Adjei",
       title: "Full-Stack Developer",
       rating: 4.9,
-      hourlyRate: 95,
-      imageUrl: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+      hourlyRate: 105,
+      imageUrl: "https://images.unsplash.com/photo-1504257432389-52343af06ae3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
       skills: ["React", "Node.js", "TypeScript", "MongoDB"],
+      university: "Ashesi University",
     },
     {
-      name: "Aisha Johnson",
+      name: "Ama Darko",
       title: "Frontend Developer",
       rating: 4.8,
-      hourlyRate: 85,
-      imageUrl: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80",
+      hourlyRate: 95,
+      imageUrl: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
       skills: ["React", "Vue.js", "CSS/SCSS", "Tailwind CSS"],
+      university: "Ghana Communication Technology University",
     },
     {
-      name: "Carlos Mendez",
+      name: "Emmanuel Owusu",
       title: "Backend Developer",
       rating: 4.7,
-      hourlyRate: 90,
-      imageUrl: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+      hourlyRate: 100,
+      imageUrl: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
       skills: ["Python", "Django", "PostgreSQL", "AWS"],
+      university: "University of Ghana",
     },
   ],
   marketing: [
     {
-      name: "Emily Parker",
+      name: "Gifty Appiah",
       title: "Digital Marketing Specialist",
       rating: 4.9,
-      hourlyRate: 70,
-      imageUrl: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=761&q=80",
+      hourlyRate: 80,
+      imageUrl: "https://images.unsplash.com/photo-1589156280159-27698a70f29e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80",
       skills: ["SEO", "Content Marketing", "Google Ads", "Analytics"],
+      university: "University of Professional Studies, Accra",
     },
     {
-      name: "Raj Patel",
+      name: "Kwesi Boateng",
       title: "Social Media Manager",
       rating: 4.8,
-      hourlyRate: 65,
-      imageUrl: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+      hourlyRate: 70,
+      imageUrl: "https://images.unsplash.com/photo-1531384441138-2736e62e0919?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
       skills: ["Social Media Strategy", "Content Creation", "Paid Social", "Analytics"],
+      university: "Kwame Nkrumah University of Science and Technology",
     },
     {
-      name: "Sarah Thompson",
+      name: "Akosua Asante",
       title: "PPC Specialist",
       rating: 4.7,
-      hourlyRate: 75,
-      imageUrl: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80",
+      hourlyRate: 85,
+      imageUrl: "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80",
       skills: ["Google Ads", "Facebook Ads", "Analytics", "Campaign Management"],
+      university: "Central University",
     },
   ],
   writing: [
     {
-      name: "David Andrews",
+      name: "Joseph Manu",
       title: "Content Writer",
       rating: 4.9,
-      hourlyRate: 60,
-      imageUrl: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+      hourlyRate: 65,
+      imageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
       skills: ["Blog Writing", "SEO Writing", "Research", "Editing"],
+      university: "University of Cape Coast",
     },
     {
-      name: "Nina Patel",
+      name: "Nana Addo",
       title: "Copywriter",
       rating: 4.8,
-      hourlyRate: 70,
-      imageUrl: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+      hourlyRate: 75,
+      imageUrl: "https://images.unsplash.com/photo-1507038732509-8b1a9623223a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
       skills: ["Ad Copy", "Website Copy", "Email Marketing", "Brand Voice"],
+      university: "Ashesi University",
     },
     {
-      name: "Marcus Johnson",
+      name: "Efua Mensah",
       title: "Technical Writer",
       rating: 4.7,
-      hourlyRate: 75,
-      imageUrl: "https://images.unsplash.com/photo-1531384441138-2736e62e0919?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+      hourlyRate: 80,
+      imageUrl: "https://images.unsplash.com/photo-1589156191108-c762ff4b96ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80",
       skills: ["Technical Documentation", "API Docs", "Knowledge Base", "User Guides"],
+      university: "Ghana Communication Technology University",
     },
   ],
 };
@@ -129,13 +141,13 @@ export function Categories() {
       <div className="container mx-auto px-4 md:px-6">
         <AnimateOnScroll animation="slide-up" className="text-center mb-12">
           <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-sm font-medium rounded-full mb-4">
-            Top Rated Freelancers
+            Top Rated Ghanaian Student Freelancers
           </div>
           <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-            Discover talent by category
+            Discover student talent by category
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Browse our curated selection of top-rated professionals across various categories, 
+            Browse our curated selection of top-rated Ghanaian university students across various categories, 
             ready to bring your projects to life with exceptional quality.
           </p>
         </AnimateOnScroll>
@@ -172,6 +184,7 @@ export function Categories() {
                     hourlyRate={freelancer.hourlyRate}
                     imageUrl={freelancer.imageUrl}
                     skills={freelancer.skills}
+                    university={freelancer.university}
                     delay={idx * 100}
                   />
                 ))}
@@ -182,7 +195,7 @@ export function Categories() {
 
         <AnimateOnScroll animation="fade-in" delay={300} className="text-center mt-12">
           <Button className="bg-primary hover:bg-primary/90 text-white">
-            Browse All Freelancers <ArrowRight size={16} className="ml-2" />
+            Browse All Student Freelancers <ArrowRight size={16} className="ml-2" />
           </Button>
         </AnimateOnScroll>
       </div>

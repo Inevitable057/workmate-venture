@@ -19,8 +19,8 @@ const pricingPlans = [
     id: "basic",
     name: "Basic",
     description: "Essential features for individuals",
-    monthlyPrice: 19.99,
-    yearlyPrice: 199.99,
+    monthlyPrice: 149.99,
+    yearlyPrice: 1499.99,
     features: [
       "Up to 10 project postings",
       "Basic freelancer search",
@@ -39,8 +39,8 @@ const pricingPlans = [
     id: "professional",
     name: "Professional",
     description: "Perfect for growing businesses",
-    monthlyPrice: 49.99,
-    yearlyPrice: 499.99,
+    monthlyPrice: 349.99,
+    yearlyPrice: 3499.99,
     features: [
       "Up to 50 project postings",
       "Advanced freelancer search",
@@ -57,8 +57,8 @@ const pricingPlans = [
     id: "enterprise",
     name: "Enterprise",
     description: "For teams and large projects",
-    monthlyPrice: 99.99,
-    yearlyPrice: 999.99,
+    monthlyPrice: 799.99,
+    yearlyPrice: 7999.99,
     features: [
       "Unlimited project postings",
       "Premium freelancer search",
@@ -160,7 +160,7 @@ export function Pricing() {
                   <div className="mt-4">
                     <div className="flex items-baseline">
                       <span className="text-3xl font-bold">
-                        ${annually ? plan.yearlyPrice.toFixed(2) : plan.monthlyPrice.toFixed(2)}
+                        ₵{annually ? plan.yearlyPrice.toFixed(2) : plan.monthlyPrice.toFixed(2)}
                       </span>
                       <span className="text-muted-foreground ml-2">
                         /{annually ? 'year' : 'month'}

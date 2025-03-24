@@ -15,6 +15,7 @@ interface FreelancerCardProps {
   className?: string;
   delay?: number;
   reviewCount?: number;
+  university?: string;
 }
 
 export function FreelancerCard({
@@ -27,6 +28,7 @@ export function FreelancerCard({
   className,
   delay = 0,
   reviewCount = Math.floor(Math.random() * 50) + 5, // Random number of reviews between 5-55
+  university,
 }: FreelancerCardProps) {
   const handleHire = () => {
     toast.success(`Contact request sent to ${name}`);
@@ -49,7 +51,10 @@ export function FreelancerCard({
           </div>
           <div>
             <h3 className="font-semibold text-lg">{name}</h3>
-            <p className="text-muted-foreground text-sm mb-2">{title}</p>
+            <p className="text-muted-foreground text-sm mb-1">{title}</p>
+            {university && (
+              <p className="text-xs text-muted-foreground mb-2">Student at {university}</p>
+            )}
             <div className="flex items-center">
               <div className="flex items-center mr-2">
                 {[...Array(5)].map((_, i) => (
@@ -69,7 +74,7 @@ export function FreelancerCard({
         <div className="space-y-3">
           <div className="text-sm">
             <span className="text-muted-foreground">Hourly Rate:</span>{" "}
-            <span className="font-semibold">${hourlyRate}/hr</span>
+            <span className="font-semibold">₵{hourlyRate}/hr</span>
           </div>
           
           <div>
