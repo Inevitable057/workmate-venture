@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -10,7 +9,6 @@ import { useForm } from "react-hook-form";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { toast } from "sonner";
 
-// Mock data for reviews
 const mockReviews = [
   {
     id: 1,
@@ -184,141 +182,143 @@ export function Reviews() {
             defaultValue="all"
             value={activeTab}
             onValueChange={setActiveTab}
-            className="w-full md:w-auto"
+            className="w-full"
           >
-            <AnimateOnScroll animation="slide-up" delay={100} className="flex justify-center md:justify-start mb-6">
-              <TabsList className="bg-background/50 backdrop-blur-sm border border-border">
-                <TabsTrigger value="all">All Reviews</TabsTrigger>
-                <TabsTrigger value="5">5 Star</TabsTrigger>
-                <TabsTrigger value="4">4 Star</TabsTrigger>
-                <TabsTrigger value="3">3 Star & Below</TabsTrigger>
-              </TabsList>
-            </AnimateOnScroll>
-          </Tabs>
+            <div className="flex flex-col md:flex-row justify-between mb-6">
+              <AnimateOnScroll animation="slide-up" delay={100} className="flex justify-center md:justify-start mb-6">
+                <TabsList className="bg-background/50 backdrop-blur-sm border border-border">
+                  <TabsTrigger value="all">All Reviews</TabsTrigger>
+                  <TabsTrigger value="5">5 Star</TabsTrigger>
+                  <TabsTrigger value="4">4 Star</TabsTrigger>
+                  <TabsTrigger value="3">3 Star & Below</TabsTrigger>
+                </TabsList>
+              </AnimateOnScroll>
 
-          <AnimateOnScroll animation="slide-up" delay={150} className="mb-6 md:mb-0">
-            <Popover open={openWriteReview} onOpenChange={setOpenWriteReview}>
-              <PopoverTrigger asChild>
-                <Button>Write a Review</Button>
-              </PopoverTrigger>
-              <PopoverContent className="w-96" align="end">
-                <div className="grid gap-4">
-                  <div className="space-y-2">
-                    <h4 className="font-medium leading-none">Write a Review</h4>
-                    <p className="text-sm text-muted-foreground">
-                      Share your experience with a freelancer
-                    </p>
-                  </div>
-                  <Form {...form}>
-                    <form onSubmit={form.handleSubmit(submitReview)} className="space-y-4">
-                      <FormField
-                        control={form.control}
-                        name="freelancerName"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Freelancer Name</FormLabel>
-                            <FormControl>
-                              <Input placeholder="Enter freelancer name" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      
+              <AnimateOnScroll animation="slide-up" delay={150} className="mb-6 md:mb-0">
+                <Popover open={openWriteReview} onOpenChange={setOpenWriteReview}>
+                  <PopoverTrigger asChild>
+                    <Button>Write a Review</Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-96" align="end">
+                    <div className="grid gap-4">
                       <div className="space-y-2">
-                        <FormLabel>Rating</FormLabel>
-                        <div className="flex">
-                          {[1, 2, 3, 4, 5].map((star) => (
-                            <Star
-                              key={star}
-                              size={24}
-                              className={`cursor-pointer ${
-                                star <= (hoverRating || rating)
-                                  ? "text-yellow-400 fill-yellow-400"
-                                  : "text-gray-300"
-                              }`}
-                              onClick={() => setRating(star)}
-                              onMouseEnter={() => setHoverRating(star)}
-                              onMouseLeave={() => setHoverRating(0)}
-                            />
-                          ))}
-                        </div>
+                        <h4 className="font-medium leading-none">Write a Review</h4>
+                        <p className="text-sm text-muted-foreground">
+                          Share your experience with a freelancer
+                        </p>
                       </div>
-                      
-                      <FormField
-                        control={form.control}
-                        name="review"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Your Review</FormLabel>
-                            <FormControl>
-                              <textarea 
-                                className="flex min-h-20 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                                placeholder="Share your experience..."
-                                {...field}
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      
-                      <div className="flex justify-end gap-2">
-                        <Button type="button" variant="outline" onClick={() => setOpenWriteReview(false)}>
-                          Cancel
-                        </Button>
-                        <Button type="submit">Submit Review</Button>
-                      </div>
-                    </form>
-                  </Form>
-                </div>
-              </PopoverContent>
-            </Popover>
-          </AnimateOnScroll>
-        </div>
+                      <Form {...form}>
+                        <form onSubmit={form.handleSubmit(submitReview)} className="space-y-4">
+                          <FormField
+                            control={form.control}
+                            name="freelancerName"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel>Freelancer Name</FormLabel>
+                                <FormControl>
+                                  <Input placeholder="Enter freelancer name" {...field} />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          
+                          <div className="space-y-2">
+                            <FormLabel>Rating</FormLabel>
+                            <div className="flex">
+                              {[1, 2, 3, 4, 5].map((star) => (
+                                <Star
+                                  key={star}
+                                  size={24}
+                                  className={`cursor-pointer ${
+                                    star <= (hoverRating || rating)
+                                      ? "text-yellow-400 fill-yellow-400"
+                                      : "text-gray-300"
+                                  }`}
+                                  onClick={() => setRating(star)}
+                                  onMouseEnter={() => setHoverRating(star)}
+                                  onMouseLeave={() => setHoverRating(0)}
+                                />
+                              ))}
+                            </div>
+                          </div>
+                          
+                          <FormField
+                            control={form.control}
+                            name="review"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel>Your Review</FormLabel>
+                                <FormControl>
+                                  <textarea 
+                                    className="flex min-h-20 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                                    placeholder="Share your experience..."
+                                    {...field}
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          
+                          <div className="flex justify-end gap-2">
+                            <Button type="button" variant="outline" onClick={() => setOpenWriteReview(false)}>
+                              Cancel
+                            </Button>
+                            <Button type="submit">Submit Review</Button>
+                          </div>
+                        </form>
+                      </Form>
+                    </div>
+                  </PopoverContent>
+                </Popover>
+              </AnimateOnScroll>
+            </div>
 
-        <TabsContent value="all" className="mt-0">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {mockReviews.map((review) => (
-              <ReviewCard key={review.id} review={review} />
-            ))}
-          </div>
-        </TabsContent>
-        
-        <TabsContent value="5" className="mt-0">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {mockReviews
-              .filter((review) => review.rating === 5)
-              .map((review) => (
-                <ReviewCard key={review.id} review={review} />
-              ))}
-          </div>
-        </TabsContent>
-        
-        <TabsContent value="4" className="mt-0">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {mockReviews
-              .filter((review) => review.rating === 4)
-              .map((review) => (
-                <ReviewCard key={review.id} review={review} />
-              ))}
-          </div>
-        </TabsContent>
-        
-        <TabsContent value="3" className="mt-0">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {mockReviews
-              .filter((review) => review.rating <= 3)
-              .map((review) => (
-                <ReviewCard key={review.id} review={review} />
-              ))}
-            {mockReviews.filter((review) => review.rating <= 3).length === 0 && (
-              <div className="col-span-2 text-center py-12 text-muted-foreground">
-                No reviews with 3 stars or below yet.
+            <TabsContent value="all">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {mockReviews.map((review) => (
+                  <ReviewCard key={review.id} review={review} />
+                ))}
               </div>
-            )}
-          </div>
-        </TabsContent>
+            </TabsContent>
+            
+            <TabsContent value="5">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {mockReviews
+                  .filter((review) => review.rating === 5)
+                  .map((review) => (
+                    <ReviewCard key={review.id} review={review} />
+                  ))}
+              </div>
+            </TabsContent>
+            
+            <TabsContent value="4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {mockReviews
+                  .filter((review) => review.rating === 4)
+                  .map((review) => (
+                    <ReviewCard key={review.id} review={review} />
+                  ))}
+              </div>
+            </TabsContent>
+            
+            <TabsContent value="3">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {mockReviews
+                  .filter((review) => review.rating <= 3)
+                  .map((review) => (
+                    <ReviewCard key={review.id} review={review} />
+                  ))}
+                {mockReviews.filter((review) => review.rating <= 3).length === 0 && (
+                  <div className="col-span-2 text-center py-12 text-muted-foreground">
+                    No reviews with 3 stars or below yet.
+                  </div>
+                )}
+              </div>
+            </TabsContent>
+          </Tabs>
+        </div>
       </div>
     </section>
   );
