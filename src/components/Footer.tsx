@@ -1,5 +1,6 @@
+
 import { AnimateOnScroll } from "./ui/animations";
-import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from "lucide-react";
+import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, ChevronRight } from "lucide-react";
 import { Logo } from "./Logo";
 
 export function Footer() {
