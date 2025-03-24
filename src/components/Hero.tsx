@@ -24,7 +24,7 @@ export function Hero() {
           <div>
             <AnimateOnScroll animation="slide-up">
               <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-sm font-medium rounded-full mb-6">
-                Transforming how work gets done
+                Where Skills Meet Opportunity
               </div>
             </AnimateOnScroll>
 

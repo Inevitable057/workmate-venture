@@ -38,7 +38,7 @@ export function Navbar() {
           {/* Logo */}
           <AnimateOnScroll animation="fade-in" className="flex items-center">
             <a href="/" className="text-2xl font-display font-bold text-primary">
-              Freelance<span className="text-accent">Hub</span>
+              Uni<span className="text-accent">Talent</span>
             </a>
           </AnimateOnScroll>
 
@@ -51,7 +51,7 @@ export function Navbar() {
               <a href="#" className="text-foreground/80 hover:text-foreground transition-colors">Find Work</a>
             </AnimateOnScroll>
             <AnimateOnScroll animation="fade-in" delay={300}>
-              <a href="#" className="text-foreground/80 hover:text-foreground transition-colors">Why FreelanceHub</a>
+              <a href="#" className="text-foreground/80 hover:text-foreground transition-colors">Why UniTalent</a>
             </AnimateOnScroll>
             <AnimateOnScroll animation="fade-in" delay={400}>
               <Button variant="ghost" className="text-foreground/80 hover:text-foreground">
@@ -89,7 +89,7 @@ export function Navbar() {
                 Find Work
               </a>
               <a href="#" className="text-foreground/80 hover:text-foreground transition-colors py-2">
-                Why FreelanceHub
+                Why UniTalent
               </a>
               <Button variant="ghost" className="justify-start text-foreground/80 hover:text-foreground w-full">
                 Log In
