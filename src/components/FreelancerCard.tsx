@@ -1,7 +1,9 @@
 
 import { cn } from "@/lib/utils";
 import { AnimateOnScroll, BlurImage } from "./ui/animations";
-import { Star } from "lucide-react";
+import { Star, MessageSquare } from "lucide-react";
+import { Button } from "./ui/button";
+import { toast } from "sonner";
 
 interface FreelancerCardProps {
   name: string;
@@ -12,6 +14,7 @@ interface FreelancerCardProps {
   skills: string[];
   className?: string;
   delay?: number;
+  reviewCount?: number;
 }
 
 export function FreelancerCard({
@@ -23,7 +26,16 @@ export function FreelancerCard({
   skills,
   className,
   delay = 0,
+  reviewCount = Math.floor(Math.random() * 50) + 5, // Random number of reviews between 5-55
 }: FreelancerCardProps) {
+  const handleHire = () => {
+    toast.success(`Contact request sent to ${name}`);
+  };
+  
+  const handleRateReview = () => {
+    toast.info(`Rate and review form for ${name} opened`);
+  };
+
   return (
     <AnimateOnScroll animation="scale-in" delay={delay} className={cn("", className)}>
       <div className="glass-card h-full p-6 rounded-xl hover:shadow-medium transition-all duration-300 hover:translate-y-[-4px]">
@@ -49,6 +61,7 @@ export function FreelancerCard({
                 ))}
               </div>
               <span className="text-sm font-medium">{rating.toFixed(1)}</span>
+              <span className="text-sm text-muted-foreground ml-1">({reviewCount})</span>
             </div>
           </div>
         </div>
@@ -71,6 +84,23 @@ export function FreelancerCard({
                 </span>
               ))}
             </div>
+          </div>
+          
+          <div className="pt-3 flex space-x-2">
+            <Button 
+              className="flex-1" 
+              onClick={handleHire}
+            >
+              Hire Me
+            </Button>
+            <Button 
+              variant="outline" 
+              size="icon"
+              onClick={handleRateReview}
+              title="Rate and Review"
+            >
+              <MessageSquare size={16} />
+            </Button>
           </div>
         </div>
       </div>
